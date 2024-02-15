@@ -14,6 +14,9 @@ test
 .vscode/
 .idea/
 
+# AIM files
+.aim
+
 # Env files
 .env
 
@@ -26,3 +29,8 @@ venv/
 
 # Tox envs
 .tox
+
+# Backup files and folders
+*.bkp
+*.bkp.*
+*-bkp*
