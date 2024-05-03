@@ -23,7 +23,6 @@ import os
 import re
 
 # Third Party
-from jsonschema import Draft202012Validator, ValidationError
 from transformers import (
     TrainerCallback,
     TrainerControl,
@@ -227,7 +226,10 @@ class TrainerControllerCallback(TrainerCallback):
                         control_action.rule, {"__builtins__": None}, self.metrics
                     )
                 except TypeError as et:
-                    raise TypeError("Rule failed due to incorrect type usage") from et
+                    if self.metrics is not None and len(self.metrics) > 0:
+                        raise TypeError(
+                            "Rule failed due to incorrect type usage"
+                        ) from et
                 except ValueError as ev:
                     raise ValueError(
                         "Rule failed due to use of disallowed packages"
