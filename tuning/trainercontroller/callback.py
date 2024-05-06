@@ -226,9 +226,7 @@ class TrainerControllerCallback(TrainerCallback):
                         control_action.rule, {"__builtins__": None}, self.metrics
                     )
                 except TypeError as et:
-                    raise TypeError(
-                        "Rule failed due to incorrect type usage"
-                    ) from et
+                    raise TypeError("Rule failed due to incorrect type usage") from et
                 except ValueError as ev:
                     raise ValueError(
                         "Rule failed due to use of disallowed packages"
