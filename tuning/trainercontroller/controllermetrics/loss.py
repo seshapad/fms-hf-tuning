@@ -23,7 +23,7 @@ from transformers import TrainerState
 
 # Local
 from tuning.trainercontroller.controllermetrics.metricshandler import MetricHandler
-
+from tuning.trainercontroller.controllermetrics.constants import MetricNaN
 
 class Loss(MetricHandler):
     """Implements the controller metric which evaluates loss-per-step"""
@@ -62,3 +62,4 @@ class Loss(MetricHandler):
             if "loss" not in log:
                 continue
             return float(log["loss"])
+        return MetricNaN
