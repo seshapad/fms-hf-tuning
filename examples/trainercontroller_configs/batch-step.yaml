@@ -1,0 +1,18 @@
+controller_metrics:
+  - name: batch_inspect
+    class: BatchInspect
+  - name: training_loss
+    class: Loss
+operations:
+  - name: logcontrolstep
+    class: LogControl
+    arguments:
+      log_format: '[{batch_inspect}] => {training_loss}'
+      log_level: warning
+controllers:
+  - name: batch_step
+    triggers:
+      - on_step_end_with_batch_data
+    rule: 'True'
+    operations:
+      - logcontrolstep.should_log
