@@ -19,6 +19,7 @@ import os
 
 # Third Party
 from aim.hugging_face import AimCallback  # pylint: disable=import-error
+from aim import Text as AimText
 
 # Local
 from .tracker import Tracker
@@ -88,6 +89,32 @@ class RunIDExporterAimCallback(AimCallback):
         with open(export_path, "w", encoding="utf-8") as f:
             f.write(json.dumps({"run_hash": str(self.experiment.hash)}))
             self.logger.info("Aimstack tracker run hash id dumped to " + export_path)
+
+    def on_step_end_with_batch_data(self, args, state, control, **kwargs):
+        """Exposes  the window of loss and metrics values in the log.
+
+        Args:
+            state: TrainerState object
+            kwargs: Remaining event arguments
+
+        Returns:
+            Any. The exposed variables are returned here.
+        """
+        batch_data = kwargs["batch_data"]
+        input_ids = batch_data['input_ids']
+        tokenizer = kwargs["tokenizer"]
+
+        decoded_batch = []
+        for input_id in input_ids:
+            decoded_data = tokenizer.decode(input_id)
+            summary = decoded_data
+            decoded_batch.append(summary)
+
+        batch_text = AimText("".join(decoded_batch))
+        self.experiment.track(batch_text, name="batch", step=state.global_step, epoch=state.epoch)
+
+        data = { "batch" : decoded_batch }
+        return data
 
 
 class AimStackTracker(Tracker):
@@ -186,3 +213,15 @@ class AimStackTracker(Tracker):
         if run is not None:
             for key, value in params.items():
                 run.set((name, key), value, strict=False)
+
+    # Sub function which tracks text.
+    def _track_text(run, s, name, step, epoch):
+        run.track(AimText(s), name=name, step=step, epoch=epoch)
+
+    def track_object(self, obj, name=None, step=None, epoch=None):
+        callback = self.hf_callback
+        run = callback.experiment
+        if isinstance(obj, str):
+            self._track_text(run, s=obj, name=name, step=step, epoch=epoch)
+        else:
+            raise ValueError("Tracking object of type "+type(obj)+" is not supported for Aim yet.")

@@ -38,3 +38,6 @@ class Tracker:
     # for the parameters to be associated with a run
     def set_params(self, params, name):
         pass
+
+    def track_object(self, obj, name=None, step=None, epoch=None):
+        pass
