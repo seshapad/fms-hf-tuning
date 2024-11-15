@@ -1,0 +1,105 @@
+Unhandled exception during training: 'Invalid operation logcontrolstep.should_log for control batch_step'Unhandled exception during training: '"loss"'Exception raised during training. This may be a problem with your input: BatchInspect.__init__() missing 1 required positional argument: 'log_format'Unhandled exception during training: name 'output' is not definedUnhandled exception during training: 'Tensor' object has no attribute 'keys'Exception raised during training. This may be a problem with your input: CallbackHandler.on_step_end_with_batch_data() got an unexpected keyword argument 'outputs'Exception raised during training. This may be a problem with your input: [Errno 2] No such file or directory: '/dccstor/rhassistant/seshapad/fms-hf-tuningbkp/config/config.json'Exception raised during training. This may be a problem with your input: [Errno 2] No such file or directory: '/dccstor/rhassistant/seshapad/fms-hf-tuningbkp/config/config.json'Exception raised during training. This may be a problem with your input: Since dataset_text_field or data_formatter_template                        is provided and packing is disabled,                        needs a corresponding response template for maskingException raised during training. This may be a problem with your input: Since dataset_text_field or data_formatter_template                        is provided and packing is disabled,                        needs a corresponding response template for maskingUnhandled exception during training: 'input'Unhandled exception during training: 'input'Exception raised during training. This may be a problem with your input: not enough values to unpack (expected 3, got 2)Exception raised during training. This may be a problem with your input: not enough values to unpack (expected 3, got 2)Exception raised during training. This may be a problem with your input: LlamaForCausalLM(
+  (model): LlamaModel(
+    (embed_tokens): Embedding(32001, 64, padding_idx=0)
+    (layers): ModuleList(
+      (0-7): 8 x LlamaDecoderLayer(
+        (self_attn): LlamaSdpaAttention(
+          (q_proj): Linear(in_features=64, out_features=64, bias=False)
+          (k_proj): Linear(in_features=64, out_features=64, bias=False)
+          (v_proj): Linear(in_features=64, out_features=64, bias=False)
+          (o_proj): Linear(in_features=64, out_features=64, bias=False)
+          (rotary_emb): LlamaRotaryEmbedding()
+        )
+        (mlp): LlamaMLP(
+          (gate_proj): Linear(in_features=64, out_features=256, bias=False)
+          (up_proj): Linear(in_features=64, out_features=256, bias=False)
+          (down_proj): Linear(in_features=256, out_features=64, bias=False)
+          (act_fn): SiLU()
+        )
+        (input_layernorm): LlamaRMSNorm((64,), eps=1e-06)
+        (post_attention_layernorm): LlamaRMSNorm((64,), eps=1e-06)
+      )
+    )
+    (norm): LlamaRMSNorm((64,), eps=1e-06)
+    (rotary_emb): LlamaRotaryEmbedding()
+  )
+  (lm_head): Linear(in_features=64, out_features=32001, bias=False)
+) argument after ** must be a mapping, not TensorUnhandled exception during training: module 'transformers.utils.logging' has no attribute 'warning'Exception raised during training. This may be a problem with your input: LlamaForCausalLM(
+  (model): LlamaModel(
+    (embed_tokens): Embedding(32001, 64, padding_idx=0)
+    (layers): ModuleList(
+      (0-7): 8 x LlamaDecoderLayer(
+        (self_attn): LlamaSdpaAttention(
+          (q_proj): Linear(in_features=64, out_features=64, bias=False)
+          (k_proj): Linear(in_features=64, out_features=64, bias=False)
+          (v_proj): Linear(in_features=64, out_features=64, bias=False)
+          (o_proj): Linear(in_features=64, out_features=64, bias=False)
+          (rotary_emb): LlamaRotaryEmbedding()
+        )
+        (mlp): LlamaMLP(
+          (gate_proj): Linear(in_features=64, out_features=256, bias=False)
+          (up_proj): Linear(in_features=64, out_features=256, bias=False)
+          (down_proj): Linear(in_features=256, out_features=64, bias=False)
+          (act_fn): SiLU()
+        )
+        (input_layernorm): LlamaRMSNorm((64,), eps=1e-06)
+        (post_attention_layernorm): LlamaRMSNorm((64,), eps=1e-06)
+      )
+    )
+    (norm): LlamaRMSNorm((64,), eps=1e-06)
+    (rotary_emb): LlamaRotaryEmbedding()
+  )
+  (lm_head): Linear(in_features=64, out_features=32001, bias=False)
+) argument after ** must be a mapping, not TensorException raised during training. This may be a problem with your input: LlamaForCausalLM.forward() takes from 1 to 13 positional arguments but 282 were givenException raised during training. This may be a problem with your input: LlamaForCausalLM(
+  (model): LlamaModel(
+    (embed_tokens): Embedding(32001, 64, padding_idx=0)
+    (layers): ModuleList(
+      (0-7): 8 x LlamaDecoderLayer(
+        (self_attn): LlamaSdpaAttention(
+          (q_proj): Linear(in_features=64, out_features=64, bias=False)
+          (k_proj): Linear(in_features=64, out_features=64, bias=False)
+          (v_proj): Linear(in_features=64, out_features=64, bias=False)
+          (o_proj): Linear(in_features=64, out_features=64, bias=False)
+          (rotary_emb): LlamaRotaryEmbedding()
+        )
+        (mlp): LlamaMLP(
+          (gate_proj): Linear(in_features=64, out_features=256, bias=False)
+          (up_proj): Linear(in_features=64, out_features=256, bias=False)
+          (down_proj): Linear(in_features=256, out_features=64, bias=False)
+          (act_fn): SiLU()
+        )
+        (input_layernorm): LlamaRMSNorm((64,), eps=1e-06)
+        (post_attention_layernorm): LlamaRMSNorm((64,), eps=1e-06)
+      )
+    )
+    (norm): LlamaRMSNorm((64,), eps=1e-06)
+    (rotary_emb): LlamaRotaryEmbedding()
+  )
+  (lm_head): Linear(in_features=64, out_features=32001, bias=False)
+) argument after ** must be a mapping, not TensorException raised during training. This may be a problem with your input: LlamaForCausalLM(
+  (model): LlamaModel(
+    (embed_tokens): Embedding(32001, 64, padding_idx=0)
+    (layers): ModuleList(
+      (0-7): 8 x LlamaDecoderLayer(
+        (self_attn): LlamaSdpaAttention(
+          (q_proj): Linear(in_features=64, out_features=64, bias=False)
+          (k_proj): Linear(in_features=64, out_features=64, bias=False)
+          (v_proj): Linear(in_features=64, out_features=64, bias=False)
+          (o_proj): Linear(in_features=64, out_features=64, bias=False)
+          (rotary_emb): LlamaRotaryEmbedding()
+        )
+        (mlp): LlamaMLP(
+          (gate_proj): Linear(in_features=64, out_features=256, bias=False)
+          (up_proj): Linear(in_features=64, out_features=256, bias=False)
+          (down_proj): Linear(in_features=256, out_features=64, bias=False)
+          (act_fn): SiLU()
+        )
+        (input_layernorm): LlamaRMSNorm((64,), eps=1e-06)
+        (post_attention_layernorm): LlamaRMSNorm((64,), eps=1e-06)
+      )
+    )
+    (norm): LlamaRMSNorm((64,), eps=1e-06)
+    (rotary_emb): LlamaRotaryEmbedding()
+  )
+  (lm_head): Linear(in_features=64, out_features=32001, bias=False)
+) argument after ** must be a mapping, not TensorUnhandled exception during training: local variable 'model' referenced before assignmentUnhandled exception during training: 'batch_data'Unhandled exception during training: 'batch_data'Unhandled exception during training: 'batch_data'Exception raised during training. This may be a problem with your input: BatchInspect._find_spikes() takes 2 positional arguments but 3 were given

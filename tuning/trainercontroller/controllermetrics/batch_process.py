@@ -23,6 +23,9 @@ from typing import Any
 # Third Party
 from transformers import TrainerState
 from transformers.utils import logging
+from string import punctuation
+import re
+import torch 
 
 # Local
 from tuning.trainercontroller.controllermetrics.metricshandler import MetricHandler
@@ -37,7 +40,7 @@ EPOCH_KEY = "epoch"
 
 logger = logging.get_logger(__name__)
 
-class BatchInspect(MetricHandler):
+class BatchProcess(MetricHandler):
     """Implements the controller metric which evaluates loss-per-step"""
 
     def __init__(self, window_size=1, **kwargs):
@@ -78,10 +81,9 @@ class BatchInspect(MetricHandler):
         for input_id in input_ids:
             decoded_data = tokenizer.decode(input_id)
             summary = decoded_data
-            if len(decoded_data) > SUMMARY_LIMIT:
-                summary = decoded_data[SUMMARY_BEGIN:SUMMARY_LIMIT]
             decoded_batch.append(summary)
         data = {
-                    BATCH_KEY: decoded_batch
+                    BATCH_KEY: decoded_batch,
+                    "batch_data": batch_data
                 }
         return data

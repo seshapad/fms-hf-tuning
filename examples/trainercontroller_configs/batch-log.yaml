@@ -4,10 +4,10 @@ controller_metrics:
   - name: training_loss
     class: Loss
 operations:
-  - name: batch_inspect
-    class: BatchInspect
+  - name: logcontrolstep
+    class: LogControl
     arguments:
-      spike_threshold: 10.0
+      log_format: 'This is a test log format [{event_name}] => {trainer_state}'
       log_level: warning
 controllers:
   - name: batch_step
@@ -15,4 +15,4 @@ controllers:
       - on_log
     rule: training_loss["loss"] > 8
     operations:
-      - batch_inspect.should_log
+      - logcontrolstep.should_log

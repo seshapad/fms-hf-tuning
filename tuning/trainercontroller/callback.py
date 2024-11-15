@@ -609,6 +609,8 @@ class TrainerControllerCallback(TrainerCallback):
         kwargs["args"] = args
         kwargs["state"] = state
         kwargs["control"] = control
+        # outputs = kwargs["outputs"]
+        # # logger.warning(f"OUTPUT: {outputs}")
         self._actions_on_event(event_name="on_step_end_with_batch_data", **kwargs)
 
     def on_optimizer_step(

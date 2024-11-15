@@ -4,6 +4,7 @@ from typing import Type
 # Local
 from .hfcontrols import HFControls
 from .logcontrol import LogControl
+from .batch_inspect import BatchInspect
 from .operation import Operation
 
 # List of operation handlers
@@ -22,3 +23,4 @@ def register(cl: Type):
 # Register the default operation handlers in this package here
 register(HFControls)
 register(LogControl)
+register(BatchInspect)
